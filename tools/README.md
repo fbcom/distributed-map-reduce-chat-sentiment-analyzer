@@ -1,5 +1,3 @@
-### How to use the convert
-
 # ZncLogfileConverter
 
 This is a tool for combining and preparing ZNC IRC logfiles.
