@@ -6,13 +6,18 @@
 # (C) 2016 by Florian Buetow
 #
 # Usage:
-#   python ZncLogfileConvert [logfile | logfile2 | ...]
+#   python ZncLogfileConverter.py [logfile | logfile2 | ...]
+#
+# Or:
+#
+#   chmod +x ZncLogfileConverter.py
+#   ./ZncLogfileConverter.py [logfile1 | logfile2 | ...]
 #
 # Output:
 #   Converted logfile lines are printed to your terminal. You probably want to redirect the output to a file.
 #
 # Example:
-#   python ZncLogfileConvert *.* > everything.log
+#   python ZncLogfileConverter *.* > everything.log
 #
 # Note:
 #   The tool will automatically filter provided filenames so that they end in *_YYYYMMDD.log
