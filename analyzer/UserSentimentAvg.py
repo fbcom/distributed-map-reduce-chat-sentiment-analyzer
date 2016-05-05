@@ -49,7 +49,7 @@ class MRUserSentimentAvg(MRJob):
         sentiment = list(sentiment)
         if sentiment:
             sentiment_sum = round(sum(sentiment), 4)
-            value = 1.0 * sentiment_sum #/ len(sentiment)
+            value = 1.0 * sentiment_sum / len(sentiment)
             tmp = "%f" % (value)
             if value >= 0:
                 value = "+" + tmp
