@@ -67,6 +67,14 @@ class SentiWSDataConverter():
             tmp = "%f %s %s" % (weight, w, postag)
             tmp = "%s %f %s" % (w, weight, postag)
             ret.append(tmp)
+
+            w2 = w
+            for (umlaut, replacement) in [('ä','ae'),('ö','oe'),('ü','ue'),('Ä','Ae'),('Ö','Oe'),('Ü','ue'),('ß','ss')]:
+                w2 = w2.replace(umlaut,replacement)
+
+            tmp2 = "%s %f %s" % (w2, weight, postag)
+            if tmp2 != tmp:
+                ret.append(tmp2)
         return ret
 
 
