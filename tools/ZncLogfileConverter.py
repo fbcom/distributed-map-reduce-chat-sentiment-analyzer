@@ -1,29 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
+# Author: Florian Buetow
+# Copyright: Copyright (C) 2016 by Florian Buetow
+# License: MIT License
+# Source: https://github.com/fbcom/distributed-map-reduce-chat-sentiment-analyzer
+#
 # This is a tool for combining and preparing ZNC IRC logfiles.
-#
-# (C) 2016 by Florian Buetow
-#
-# Usage:
-#   python ZncLogfileConverter.py [logfile | logfile2 | ...]
-#
-# Or:
-#
-#   chmod +x ZncLogfileConverter.py
-#   ./ZncLogfileConverter.py [logfile1 | logfile2 | ...]
-#
-# Output:
-#   Converted logfile lines are printed to your terminal. You probably want to redirect the output to a file.
-#
-# Example:
-#   python ZncLogfileConverter *.* > everything.log
-#
-# Note:
-#   The tool will automatically filter provided filenames so that they end in *_YYYYMMDD.log
-#   where YYYY is a 4-digit year, MM the month and DD the day both with 2 digits each.
-#
-# Sourcecode: https://github.com/fbcom/distributed-map-reduce-chat-sentiment-analyzer
+# Please see README.md for usage instructions.
 #
 
 import re
@@ -36,7 +20,7 @@ class LinebasedLogfileReader:
 
     def __init__(self, filename):
         self.filename = filename
-        self.filehandle = open(self.filename, "r")
+        self.filehandle = open(self.filename, 'r')
 
     def nextLine(self):
         line = self.filehandle.readline()
@@ -68,6 +52,9 @@ class ZncLogfileConverter():
         """
         line = line.strip()
         token = line.split(" ")
+        if len(token) < 2:
+            return "" # unknown line format
+
         (timestamp, userid, text) = token[:2] + [" ".join(token[2:])]
         del token
 
