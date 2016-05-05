@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 #
 # Author: Florian Buetow
 # Copyright: Copyright (C) 2016 by Florian Buetow
